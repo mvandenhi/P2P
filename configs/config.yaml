@@ -1,0 +1,12 @@
+experiment_name: 'Experiment'       # name of the experiment
+experiment_path: './experiments/'   # path for model checkpoints
+# --------------------------
+
+save_model: False                   # whether to save the model
+seed: 0                             # random seed  
+
+logging:                            # wandb logging 
+  project: 'P2P'                    # project name
+  mode: 'disabled'                    # ['online', 'offline', 'disabled'] wandb mode            
+  entity: 'INSERT ENTITY HERE'      # wandb entity
+  wandb_path: './'                  # path to store wandb logs

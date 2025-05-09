@@ -1,0 +1,8 @@
+# --------------------------
+#         Dataset
+# --------------------------
+defaults:
+  - data_defaults
+dataset: 'bam'                      # name of the dataset
+num_classes: 10                     # number of the classes of the target variable
+target: 'object'                    # bam variant, i.e. whether scene or object is target     

@@ -1,0 +1,42 @@
+# --------------------------
+#         Model
+# --------------------------
+model: 'P2P'                                # model's name              
+tag: 'p2p'                                  # model's tag
+
+model_path: './pretrained_models/'          # path to store the pretrained models (i.e. MobileNet, ViT, ..)
+importance_predictor_arch: 'mobilenet'      # architecture of the importance predictor ['mobilenet']
+classifier_arch: 'vit_tiny'                 # architecture of the classifier ['vit_tiny', 'vit_base', 'resnet18', 'resnet34']
+use_dynamic_threshold: True                 # whether to use dynamic or fixed masking threshold 
+certainty_threshold: [0.99]                 # at which certainty thresholds to evaluate the model if use_dynamic_threshold is True. 
+
+# --------------------------
+#    Training Parameters
+# --------------------------
+num_epochs: 100                             # number of training epochs            
+validate_per_epoch: 10                      # periodicity to evaluate the model
+optimizer: 'adam'                           # optimizer: 'sgd' or 'adam' or 'adamw'
+learning_rate: 0.0001                       # optimizer learning rate
+weight_decay: 0                             # optimizer weight decay
+
+# --------------------------
+#      Loss Parameters
+# --------------------------
+reg_variant: 'kl'                           # loss regularization variant ['kl', 'l1']
+reg_threshold: 0.2                          # fixed masking threshold if use_dynamic_threshold is False (by default, 20% is unmasked, 80% is masked)
+reg_weight: 10                              # regularization weight of masking loss
+reg_anneal: True                            # whether to anneal the masking loss
+cov_weight: 0.01                            # regularization weight of covariance loss        
+
+# --------------------------
+#      Covariance Parameters
+# --------------------------
+use_cov: True                               # whether to a covariance or just predict the mean    
+num_dims: 4                                 # number of dimensions of the importance predictor's embedding. 1 dimensions is for the mean, rest for the covariance
+
+# --------------------------
+#      Sampling Parameters
+# --------------------------
+num_monte_carlo: 1                          # wumber of MC samples for group selection
+straight_through: False                     # whether to do straight-through gumbel-softmax, or plain gumbel-softmax
+final_temp: 0.5                             # final temperature for gumbel-softmax

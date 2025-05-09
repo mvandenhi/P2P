@@ -1,0 +1,7 @@
+# --------------------------
+#         Dataset
+# --------------------------
+defaults:
+  - data_defaults
+dataset: 'coco'                     # name of the dataset
+num_classes: 10                     # number of the classes of the target variable

@@ -1,0 +1,7 @@
+# --------------------------
+#         Dataset
+# --------------------------
+defaults:
+  - data_defaults
+dataset: 'imagenet'                 # name of the dataset
+num_classes: 1000                   # number of the classes of the target variable

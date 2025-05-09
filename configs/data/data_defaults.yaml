@@ -1,0 +1,15 @@
+# --------------------------
+#    Data
+# --------------------------
+data_path: '../datasets/'           # path to the datasets
+resolution: 224                     # image resolution         
+batch_size: 64                      # batch size         
+workers: 10                         # number of workers in dataloader
+
+# --------------------------
+#    Preprocessing 
+# --------------------------
+precompute_superpixels: True        # perform superpixel computations during data loading
+n_segments: 100                     # number of superpixels    
+compactness: 20                     # compactness of superpixels 
+color_aug_intensity: 0.5            # color augmentation strength in [0, 1]
